@@ -4,21 +4,25 @@ services:
   web1:
     build:
       context: ./web
+      args:
+        - VITE_SUPABASE_PROJECT_ID=${VITE_SUPABASE_PROJECT_ID}
+        - VITE_SUPABASE_PUBLISHABLE_KEY=${VITE_SUPABASE_PUBLISHABLE_KEY}
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
     container_name: web1
     env_file:
       - .env
-    volumes:
-      - ./.env:/app/.env:ro
     restart: always
 
   web2:
     build:
       context: ./web
+      args:
+        - VITE_SUPABASE_PROJECT_ID=${VITE_SUPABASE_PROJECT_ID}
+        - VITE_SUPABASE_PUBLISHABLE_KEY=${VITE_SUPABASE_PUBLISHABLE_KEY}
+        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
     container_name: web2
     env_file:
       - .env
-    volumes:
-      - ./.env:/app/.env:ro
     restart: always
 
   lb:

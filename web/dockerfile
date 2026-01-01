@@ -1,6 +1,8 @@
 # Builder
-
 FROM node:24-alpine AS builder
+
+ARG VITE_API_URL
+ARG VITE_APP_NAME
 
 RUN apk add --no-cache git
 
