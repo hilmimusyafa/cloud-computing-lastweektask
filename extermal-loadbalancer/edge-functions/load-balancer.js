@@ -1,7 +1,7 @@
 export default async (request) => {
   const servers = [
-    "http://35.170.72.42/",
-    "http://54.234.156.133/"
+    "http://35.170.72.42:6767/",
+    "http://54.234.156.133:6767"
   ];
 
   async function isAlive(server) {
