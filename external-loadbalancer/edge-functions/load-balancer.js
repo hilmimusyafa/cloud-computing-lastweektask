@@ -6,10 +6,13 @@ export default async (request) => {
 
   async function isAlive(server) {
     try {
-      const res = await fetch(`${server}/health`, {
-        method: "GET",
-        timeout: 2000
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
+      const res = await fetch(server, {
+        method: "HEAD",
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
       return res.ok;
     } catch {
       return false;
