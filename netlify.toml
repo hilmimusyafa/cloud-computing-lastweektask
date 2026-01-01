@@ -1,0 +1,6 @@
+[build]
+  edge_functions = "external-loadbalancer/edge-functions"
+
+[[edge_functions]]
+  function = "load-balancer"
+  path = "/*"
